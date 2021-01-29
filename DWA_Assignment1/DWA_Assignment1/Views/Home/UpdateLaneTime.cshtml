@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Update Lane Time";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("UpdateLaneTime", "Home", FormMethod.Post))
+{
+<div>
+    <div><input type="hidden" name="LaneId" value="@ViewBag.UpdateLaneTimeLaneId" /></div>
+
+    <label>Please put time in mm/ss.ff format</label>
+
+    <div><input type="text" name="Time" /></div>
+
+    <div><input type="submit" /></div>
+
+    <div><a href="javascript:history.back()">Back</a></div>
+</div>
+}

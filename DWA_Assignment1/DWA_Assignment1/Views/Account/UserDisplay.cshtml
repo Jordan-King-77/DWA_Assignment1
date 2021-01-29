@@ -1,0 +1,58 @@
+﻿@model DWA_Assignment1.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "User Display";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    @Html.Label("Id: ")
+    @Html.DisplayFor(model => model.Id)
+</div>
+
+<div>
+    @Html.Label("Email: ")
+    @Html.DisplayFor(model => model.Email)
+</div>
+
+<div>
+    @Html.Label("First Name: ")
+    @Html.DisplayFor(model => model.FirstName)
+</div>
+
+<div>
+    @Html.Label("Last Name: ")
+    @Html.DisplayFor(model => model.LastName)
+</div>
+
+<div>
+    @Html.Label("Gender: ")
+    @Html.DisplayFor(model => model.Gender)
+</div>
+
+<div>
+    @Html.Label("Address: ")
+    @Html.DisplayFor(model => model.Address)
+</div>
+
+<div>
+    @Html.Label("Date Of Birth: ")
+    @Html.DisplayFor(model => model.DateOfBirth)
+</div>
+
+@if (Model.LockoutEndDateUtc == null)
+{
+    <div>
+        @Html.ActionLink("Edit", "EditUser", new { email = Model.Email })
+        
+        @if (User.IsInRole("Club Official"))
+        {
+            @Html.ActionLink("Archive", "ArchiveUser", new { email = Model.Email })
+        }
+    </div>
+}
+
+<div>
+    <a href="javascript:history.back()">Back to List</a>
+</div>

@@ -1,0 +1,48 @@
+﻿@model DWA_Assignment1.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "ArchiveUser";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("ArchiveUser", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div>
+        <input type="text" value="Are you sure you want to archive @ViewBag.ArchiveUserEmail?" readonly />
+    </div>
+
+    <div>
+        @Html.Label("Id: ")
+        @Html.DisplayFor(model => model.Id)
+    </div>
+
+    <div>
+        @Html.Label("Email: ")
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div>
+        @Html.Label("First Name: ")
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div>
+        @Html.Label("Last Name: ")
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div>
+        @Html.Label("Gender: ")
+        @Html.DisplayFor(model => model.Gender)
+    </div>
+
+    <div>
+        @Html.Label("Date Of Birth: ")
+        @Html.DisplayFor(model => model.DateOfBirth)
+    </div>
+
+    <input type="submit" />
+
+    @Html.ActionLink("Back to View", "UserDisplay")
+}

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<DWA_Assignment1.Models.Lane>
+
+@{
+    ViewBag.Title = "Search Lane Results";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Lanes</h3>
+@foreach(var lane in Model.ToList())
+{
+    <div>
+        <div><h4>@lane.Swimmer.FirstName @lane.Swimmer.LastName</h4></div>
+        <div><h5>Lane Number: @lane.LaneNumber | Heat: @lane.Heat</h5></div>
+        <div><p>Time: @lane.SwimmerTime</p></div>
+    </div>
+}

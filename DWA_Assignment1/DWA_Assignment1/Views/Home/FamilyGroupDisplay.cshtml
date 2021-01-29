@@ -1,0 +1,67 @@
+﻿@model DWA_Assignment1.Models.FamilyGroup
+
+@{
+    ViewBag.Title = "Family Group Display";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    @Html.Label("Group Id: ")
+    @Html.DisplayFor(model => model.GroupId)
+</div>
+
+<div>
+    @Html.Label("Group Name: ")
+    @Html.DisplayFor(model => model.GroupName)
+</div>
+
+<div>
+    @Html.Label("Group Email: ")
+    @Html.DisplayFor(model => model.Email)
+</div>
+
+<div>
+    @Html.Label("Phone Number: ")
+    @Html.DisplayFor(model => model.PhoneNumber)
+</div>
+
+<div>
+    @Html.Label("Parent Name: ")
+    @Html.DisplayFor(model => model.Parent.FirstName)
+    @Html.DisplayFor(model => model.Parent.LastName)
+</div>
+
+<ul>
+    @foreach (var swimmer in Model.Swimmers)
+    {
+        <div>
+            <li>
+                Swimmer Name:
+                @(swimmer.FirstName)
+                @(swimmer.LastName)
+                @if (User.IsInRole("Parent"))
+                {
+                    <div>
+                        @Html.ActionLink("View Profile", "FindUserResults", "Account", new { email = swimmer.Email }, null)
+                        |
+                        @Html.ActionLink("View Meets", "SearchChildMeets", new { ChildId = swimmer.Id })
+                        |
+                        @Html.ActionLink("View Events", "SearchChildEvents", new { ChildId = swimmer.Id })
+                    </div>
+                }
+            </li>
+        </div>
+    }
+</ul>
+
+@if (User.IsInRole("Parent"))
+{
+    <div>
+        @Html.ActionLink("Edit", "EditUserFamilyGroup", new { GroupId = Model.GroupId })
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back", "Index", "Home")
+</div>

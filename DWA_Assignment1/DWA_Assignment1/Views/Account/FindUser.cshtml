@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Find User";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using(Html.BeginForm("FindUserResults", "Account", FormMethod.Get))
+{
+    <div>
+        <label>Type the users email</label>
+    </div>
+
+    <div>
+        <input type="text" name="email" />
+    </div>
+
+    <div>
+        <input type="submit" />
+    </div>
+
+    <div>
+        @Html.ActionLink("Back", "ClubOfficialOptions", "Home")
+    </div>
+}
+

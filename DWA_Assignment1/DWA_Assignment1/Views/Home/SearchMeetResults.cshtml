@@ -1,0 +1,17 @@
+﻿@model IEnumerable<DWA_Assignment1.Models.Meet>
+
+@{
+    ViewBag.Title = "Search Meet Results";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Meets</h3>
+@foreach (var meet in Model)
+{
+    <div>
+        <div><h4>@meet.MeetName: @meet.Venue</h4></div>
+        <div><p>@meet.Date</p></div>
+        @Html.ActionLink("More Details", "FindMeet", new { MeetId = meet.MeetId })
+    </div>
+}

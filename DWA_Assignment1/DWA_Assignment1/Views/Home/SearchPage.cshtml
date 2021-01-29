@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Search Page";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if(User.IsInRole("Swimmer"))
+{
+<div>
+    <h3>My Content</h3>
+    <div>@Html.ActionLink("My Meets", "CurrentSwimmerMeets", "Home")</div>
+    <div>@Html.ActionLink("My Events", "CurrentSwimmerEvents", "Home")</div>
+    <div>@Html.ActionLink("My Performances", "CurrentSwimmerLanes", "Home")</div>
+</div>
+}
+
+<div>
+    <h3>Search</h3>
+    <div>@Html.ActionLink("Search Meets", "SearchMeets", "Home")</div>
+    <div>@Html.ActionLink("Search Events", "SearchEvents", "Home")</div>
+    <div>@Html.ActionLink("Search Swimmer Performances", "SearchLanes", "Home")</div>
+</div>

@@ -1,0 +1,42 @@
+﻿@model DWA_Assignment1.Models.Lane
+
+@{
+    ViewBag.Title = "Lane Display";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    @Html.Label("Lane Id: ")
+    @Html.DisplayFor(model => model.LaneId)
+</div>
+
+<div>
+    @Html.Label("Lane Number: ")
+    @Html.DisplayFor(model => model.LaneNumber)
+</div>
+
+<div>
+    @Html.Label("Heat: ")
+    @Html.DisplayFor(model => model.Heat)
+</div>
+
+<div>
+    @Html.Label("Time: ")
+    @Html.DisplayFor(model => model.SwimmerTime)
+</div>
+
+<div>
+    @Html.Label("Swimmer Name: ")
+    @Html.DisplayFor(model => model.Swimmer.FirstName)
+    @Html.DisplayFor(model => model.Swimmer.LastName)
+</div>
+
+@if (User.IsInRole("Club Official"))
+{
+    <div>
+        @Html.ActionLink("Update Time", "UpdateLaneTime", new { LaneId = Model.LaneId })
+    </div>
+}
+
+<a href="javascript:history.back()">Back</a>

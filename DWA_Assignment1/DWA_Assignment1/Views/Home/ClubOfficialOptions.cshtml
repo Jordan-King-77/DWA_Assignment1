@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Club Official Options";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<div>
+    <h3>User Options</h3>
+    <div>
+        <h4>@Html.ActionLink("Register a new user", "Register", "Account")</h4>
+    </div>
+
+    <div>
+        <h4>@Html.ActionLink("Update/Archive existing users", "FindUser", "Account")</h4>
+    </div>
+</div>
+
+<div>
+    <h3>Family Group Options</h3>
+    <div>
+        <h4>@Html.ActionLink("Create a family group", "CreateFamilyGroup", "Home")</h4>
+    </div>
+
+    <div>
+        <h4>@Html.ActionLink("Find family groups", "FindFamilyGroups", "Home")</h4>
+    </div>
+</div>
+
+<div>
+    <h3>Meet Options</h3>
+    <div>
+    <h4>@Html.ActionLink("Create Meet", "CreateMeet", "Home")</h4>
+    </div>
+</div>
+

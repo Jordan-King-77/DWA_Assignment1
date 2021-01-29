@@ -1,0 +1,86 @@
+﻿@model DWA_Assignment1.Models.Event
+
+@{
+    ViewBag.Title = "Event Display";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Event Details</h4>
+
+    <div>
+        @Html.DisplayNameFor(model => model.EventId)
+        @Html.Label(": ")
+
+        @Html.DisplayFor(model => model.EventId)
+    </div>
+
+    <div>
+        @Html.DisplayNameFor(model => model.AgeRange)
+        @Html.Label(": ")
+
+        @Html.DisplayFor(model => model.AgeRange)
+    </div>
+
+    <div>
+        @Html.DisplayNameFor(model => model.Gender)
+        @Html.Label(": ")
+
+        @Html.DisplayFor(model => model.Gender)
+    </div>
+
+    <div>
+        @Html.DisplayNameFor(model => model.Distance)
+        @Html.Label(": ")
+
+        @Html.DisplayFor(model => model.Distance)
+    </div>
+
+    <div>
+        @Html.DisplayNameFor(model => model.Stroke)
+        @Html.Label(": ")
+
+        @Html.DisplayFor(model => model.Stroke)
+    </div>
+
+    <div>
+        <p>Lanes</p>
+        <ul>
+            @foreach (var item in Model.Lanes)
+            {
+                @*<div>
+                        <h4>Lane Details</h4>
+                        <li><p>Lane Id: @(item.LaneId)</p></li>
+                        <li><p>Lane Number: @(item.LaneNumber)</p></li>
+                        <li>Heat: @(item.Heat)</li>
+                    </div>
+
+                    <div>
+                        <h4>Swimmer Details</h4>
+                        <li>
+                            <p>
+                                Swimmer Name: @(item.Swimmer.FirstName)
+                                @(item.Swimmer.LastName)
+                            </p>
+                        </li>
+                        <li><p>Swimmer Date of Birth: @(item.Swimmer.DateOfBirth)</p></li>
+                        <li><p>Swimmer Gender: @(item.Swimmer.Gender)</p></li>
+                        <li><p>Swimmer Time: @(item.SwimmerTime)</p></li>
+                    </div>*@
+
+                <div>
+                    <li><p>@Html.ActionLink(item.Swimmer.FirstName + " " + item.Swimmer.LastName, "FindLane", new { LaneId = item.LaneId })</p></li>
+                </div>
+            }
+        </ul>
+    </div>
+
+    @if (User.IsInRole("Club Official"))
+    {
+        @Html.ActionLink("Create a swimming lane", "CreateLane", new { EventId = Model.EventId })
+    }
+</div>
+<p>
+    <a href="javascript:history.back()">Back</a>
+</p>

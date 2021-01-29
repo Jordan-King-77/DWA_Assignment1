@@ -1,0 +1,50 @@
+﻿@model DWA_Assignment1.Models.Meet
+
+@{
+    ViewBag.Title = "Meet Display";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    @Html.Label("Meet Id: ")
+    @Html.DisplayFor(model => model.MeetId)
+</div>
+
+<div>
+    @Html.Label("Meet Name: ")
+    @Html.DisplayFor(model => model.MeetName)
+</div>
+
+<div>
+    @Html.Label("Meet Venue: ")
+    @Html.DisplayFor(model => model.Venue)
+</div>
+
+<div>
+    @Html.Label("Meet Date: ")
+    @Html.DisplayFor(model => model.Date)
+</div>
+
+<div>
+    @Html.Label("Pool Length: ")
+    @Html.DisplayFor(model => model.PoolLength)
+</div>
+
+<div>
+    <ul>
+        @foreach(var eve in Model.Events)
+        {
+            <li>@Html.ActionLink(eve.AgeRange + " " + eve.Gender + " " + eve.Distance + " " + eve.Stroke, "FindEvent", new { EventId = eve.EventId})</li>
+        }
+    </ul>
+</div>
+
+<div>
+    @if (User.IsInRole("Club Official"))
+    {
+        @Html.ActionLink("Create an event", "CreateEvent", new { MeetId = Model.MeetId })
+    }
+</div>
+
+<a href="javascript:history.back()">Back</a>

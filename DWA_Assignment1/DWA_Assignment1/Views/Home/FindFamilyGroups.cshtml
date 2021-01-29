@@ -1,0 +1,24 @@
+﻿@model DWA_Assignment1.Models.FamilyGroup
+
+@{
+    ViewBag.Title = "Find Family Groups";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("FindFamilyGroups", "Home", FormMethod.Post))
+{
+    <div>
+        <label>Input the family group Id</label>
+    </div>
+
+    <div>
+        <input type="text" name="GroupId" />
+    </div>
+
+    <div>
+        <input type="submit" />
+    </div>
+
+    @Html.ActionLink("Back", "Index", "Home")
+}

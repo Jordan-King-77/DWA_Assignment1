@@ -1,0 +1,14 @@
+﻿@model IEnumerable<DWA_Assignment1.Models.ApplicationUser>
+@{
+    ViewBag.Title = "Search Swimmer Results";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@foreach(var swimmer in Model)
+{
+    <div>
+        <div><h3>@swimmer.FirstName @swimmer.LastName</h3></div>
+        <div>@Html.ActionLink("FindUser", ""</div>
+    </div>
+}

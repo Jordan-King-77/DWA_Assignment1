@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Find Event";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("FindEvent", "Home", FormMethod.Post))
+{
+    <div>
+        <label>Type the Event Id</label>
+    </div>
+
+    <div>
+        <input type="text" name="EventId" />
+    </div>
+
+    <div>
+        <input type="submit" />
+    </div>
+
+    <div>
+        @Html.ActionLink("Back", "ClubOfficialOptions", "Home")
+    </div>
+}

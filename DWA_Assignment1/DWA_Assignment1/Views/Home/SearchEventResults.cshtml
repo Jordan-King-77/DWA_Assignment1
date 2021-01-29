@@ -1,0 +1,14 @@
+﻿@model IEnumerable<DWA_Assignment1.Models.Event>
+
+@{
+    ViewBag.Title = "Search Event Results";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Events</h3>
+@foreach (var eve in Model)
+{
+    <div><h4>@eve.AgeRange @eve.Gender @eve.Distance @eve.Stroke</h4></div>
+    <div>@Html.ActionLink("More Details", "FindEvent", new { EventId = eve.EventId })</div>
+}
